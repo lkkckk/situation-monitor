@@ -2,6 +2,8 @@
 	import Modal from './Modal.svelte';
 	import { settings } from '$lib/stores';
 	import { PANELS, type PanelId } from '$lib/config';
+	import { _ } from 'svelte-i18n';
+	import { locale, setLocale } from '$lib/i18n';
 
 	interface Props {
 		open: boolean;
@@ -20,11 +22,11 @@
 	}
 </script>
 
-<Modal {open} title="Settings" {onClose}>
+<Modal {open} title={$_('settings.title')} {onClose}>
 	<div class="settings-sections">
 		<section class="settings-section">
-			<h3 class="section-title">Enabled Panels</h3>
-			<p class="section-desc">Toggle panels on/off to customize your dashboard</p>
+			<h3 class="section-title">{$_('settings.enabledPanels')}</h3>
+			<p class="section-desc">{$_('settings.enabledDesc')}</p>
 
 			<div class="panels-grid">
 				{#each Object.entries(PANELS) as [id, config]}
@@ -36,7 +38,7 @@
 							checked={isEnabled}
 							onchange={() => handleTogglePanel(panelId)}
 						/>
-						<span class="panel-name">{config.name}</span>
+						<span class="panel-name">{$_(config.nameKey)}</span>
 						<span class="panel-priority">P{config.priority}</span>
 					</label>
 				{/each}
@@ -44,12 +46,37 @@
 		</section>
 
 		<section class="settings-section">
-			<h3 class="section-title">Dashboard</h3>
+			<h3 class="section-title">{$_('settings.language')}</h3>
+			<p class="section-desc">{$_('settings.languageDesc')}</p>
+			<div class="language-options">
+				<button
+					type="button"
+					class="language-btn"
+					class:active={$locale === 'zh'}
+					onclick={() => setLocale('zh')}
+				>
+					{$_('settings.languageZh')}
+				</button>
+				<button
+					type="button"
+					class="language-btn"
+					class:active={$locale === 'en'}
+					onclick={() => setLocale('en')}
+				>
+					{$_('settings.languageEn')}
+				</button>
+			</div>
+		</section>
+
+		<section class="settings-section">
+			<h3 class="section-title">{$_('settings.dashboard')}</h3>
 			{#if onReconfigure}
-				<button class="reconfigure-btn" onclick={onReconfigure}> Reconfigure Dashboard </button>
-				<p class="btn-hint">Choose a preset profile for your panels</p>
+				<button class="reconfigure-btn" onclick={onReconfigure}>
+					{$_('settings.reconfigure')}
+				</button>
+				<p class="btn-hint">{$_('settings.reconfigureHint')}</p>
 			{/if}
-			<button class="reset-btn" onclick={handleResetPanels}> Reset All Settings </button>
+			<button class="reset-btn" onclick={handleResetPanels}>{$_('settings.reset')}</button>
 		</section>
 	</div>
 </Modal>
@@ -65,6 +92,34 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
+	}
+
+	.language-options {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.language-btn {
+		padding: 0.35rem 0.75rem;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid var(--border);
+		border-radius: 4px;
+		color: var(--text-secondary);
+		font-size: 0.65rem;
+		cursor: pointer;
+		transition: all 0.15s ease;
+	}
+
+	.language-btn:hover {
+		background: rgba(255, 255, 255, 0.05);
+		color: var(--text-primary);
+	}
+
+	.language-btn.active {
+		border-color: var(--accent);
+		color: var(--accent);
+		background: rgba(var(--accent-rgb), 0.1);
 	}
 
 	.section-title {

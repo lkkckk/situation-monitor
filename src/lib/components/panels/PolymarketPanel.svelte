@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Panel } from '$lib/components/common';
+	import { _ } from 'svelte-i18n';
 
 	interface Prediction {
 		id: string;
@@ -28,16 +29,18 @@
 	}
 </script>
 
-<Panel id="polymarket" title="Polymarket" {count} {loading} {error}>
+<Panel id="polymarket" title={$_('panels.polymarket')} {count} {loading} {error}>
 	{#if predictions.length === 0 && !loading && !error}
-		<div class="empty-state">No predictions available</div>
+		<div class="empty-state">{$_('empty.polymarket')}</div>
 	{:else}
 		<div class="predictions-list">
 			{#each predictions as pred (pred.id)}
 				<div class="prediction-item">
 					<div class="prediction-info">
 						<div class="prediction-question">{pred.question}</div>
-						<div class="prediction-volume">Vol: {formatVolume(pred.volume)}</div>
+						<div class="prediction-volume">
+							{$_('polymarket.volume')}: {formatVolume(pred.volume)}
+						</div>
 					</div>
 					<div class="prediction-odds">
 						<span class="prediction-yes">{pred.yes}%</span>

@@ -6,25 +6,25 @@ import type { PanelId } from './panels';
 
 export interface Preset {
 	id: string;
-	name: string;
+	nameKey: string;
 	icon: string;
-	description: string;
+	descriptionKey: string;
 	panels: PanelId[];
 }
 
 export const PRESETS: Record<string, Preset> = {
 	'news-junkie': {
 		id: 'news-junkie',
-		name: 'News Junkie',
+		nameKey: 'presets.newsJunkie.name',
 		icon: '📰',
-		description: 'Stay on top of breaking news across politics, tech, and finance',
+		descriptionKey: 'presets.newsJunkie.description',
 		panels: ['politics', 'tech', 'finance', 'gov', 'ai', 'mainchar', 'map']
 	},
 	trader: {
 		id: 'trader',
-		name: 'Trader',
+		nameKey: 'presets.trader.name',
 		icon: '📈',
-		description: 'Market-focused dashboard with stocks, crypto, and commodities',
+		descriptionKey: 'presets.trader.description',
 		panels: [
 			'markets',
 			'heatmap',
@@ -39,9 +39,9 @@ export const PRESETS: Record<string, Preset> = {
 	},
 	geopolitics: {
 		id: 'geopolitics',
-		name: 'Geopolitics Watcher',
+		nameKey: 'presets.geopolitics.name',
 		icon: '🌍',
-		description: 'Global situation awareness and regional hotspots',
+		descriptionKey: 'presets.geopolitics.description',
 		panels: [
 			'map',
 			'intel',
@@ -57,23 +57,23 @@ export const PRESETS: Record<string, Preset> = {
 	},
 	intel: {
 		id: 'intel',
-		name: 'Intelligence Analyst',
+		nameKey: 'presets.intel.name',
 		icon: '🔍',
-		description: 'Deep analysis, pattern detection, and narrative tracking',
+		descriptionKey: 'presets.intel.description',
 		panels: ['map', 'intel', 'leaders', 'correlation', 'narrative', 'mainchar', 'politics']
 	},
 	minimal: {
 		id: 'minimal',
-		name: 'Minimal',
+		nameKey: 'presets.minimal.name',
 		icon: '⚡',
-		description: 'Just the essentials - map, news, and markets',
+		descriptionKey: 'presets.minimal.description',
 		panels: ['map', 'politics', 'markets']
 	},
 	everything: {
 		id: 'everything',
-		name: 'Everything',
+		nameKey: 'presets.everything.name',
 		icon: '🎛️',
-		description: 'Kitchen sink - all panels enabled',
+		descriptionKey: 'presets.everything.description',
 		panels: [
 			'map',
 			'politics',

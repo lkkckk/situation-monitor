@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import type { PanelId } from '$lib/config';
+	import { _ } from 'svelte-i18n';
 
 	interface Props {
 		id: PanelId;
@@ -67,7 +68,7 @@
 				{@render actions()}
 			{/if}
 			{#if collapsible}
-				<button class="panel-collapse-btn" onclick={handleCollapse} aria-label="Toggle panel">
+				<button class="panel-collapse-btn" onclick={handleCollapse} aria-label={$_('panel.toggle')}>
 					{collapsed ? '▼' : '▲'}
 				</button>
 			{/if}
@@ -78,7 +79,7 @@
 		{#if error}
 			<div class="error-msg">{error}</div>
 		{:else if loading}
-			<div class="loading-msg">Loading...</div>
+			<div class="loading-msg">{$_('panel.loading')}</div>
 		{:else}
 			{@render children()}
 		{/if}

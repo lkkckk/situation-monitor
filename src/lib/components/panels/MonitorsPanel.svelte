@@ -3,6 +3,7 @@
 	import { timeAgo } from '$lib/utils';
 	import type { CustomMonitor } from '$lib/types';
 	import type { MonitorMatch } from '$lib/stores/monitors';
+	import { _ } from 'svelte-i18n';
 
 	interface Props {
 		monitors?: CustomMonitor[];
@@ -34,18 +35,22 @@
 	}
 </script>
 
-<Panel id="monitors" title="Custom Monitors" {count} {loading} {error}>
+<Panel id="monitors" title={$_('monitors.title')} {count} {loading} {error}>
 	<div class="monitors-content">
 		{#if monitors.length === 0 && !loading && !error}
 			<div class="empty-state">
-				<p>No monitors configured</p>
+				<p>{$_('monitors.empty')}</p>
 				{#if onCreateMonitor}
-					<button class="create-btn" onclick={onCreateMonitor}> + Create Monitor </button>
+					<button class="create-btn" onclick={onCreateMonitor}>
+						{$_('monitors.create')}
+					</button>
 				{/if}
 			</div>
 		{:else}
 			<div class="monitors-header">
-				<span class="active-count">{activeMonitors.length} active</span>
+				<span class="active-count">
+					{$_('monitors.activeCount', { values: { count: activeMonitors.length } })}
+				</span>
 				{#if onCreateMonitor}
 					<button class="add-btn" onclick={onCreateMonitor}>+</button>
 				{/if}
@@ -70,13 +75,17 @@
 										class="action-btn"
 										class:active={monitor.enabled}
 										onclick={() => onToggleMonitor?.(monitor.id)}
-										title={monitor.enabled ? 'Disable' : 'Enable'}
+										title={monitor.enabled ? $_('monitors.disable') : $_('monitors.enable')}
 									>
 										{monitor.enabled ? '●' : '○'}
 									</button>
 								{/if}
 								{#if onEditMonitor}
-									<button class="action-btn" onclick={() => onEditMonitor?.(monitor)} title="Edit">
+									<button
+										class="action-btn"
+										onclick={() => onEditMonitor?.(monitor)}
+										title={$_('monitors.edit')}
+									>
 										✎
 									</button>
 								{/if}
@@ -84,7 +93,7 @@
 									<button
 										class="action-btn delete"
 										onclick={() => onDeleteMonitor?.(monitor.id)}
-										title="Delete"
+										title={$_('monitors.delete')}
 									>
 										×
 									</button>

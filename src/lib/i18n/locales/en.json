@@ -1,0 +1,211 @@
+{
+	"app": {
+		"title": "Situation Monitor",
+		"description": "Real-time global situation monitoring dashboard",
+		"logo": "SITUATION MONITOR"
+	},
+	"header": {
+		"lastUpdated": "Last updated: {time}",
+		"neverRefreshed": "Never refreshed",
+		"refreshing": "Refreshing...",
+		"settings": "Settings"
+	},
+	"modal": {
+		"close": "Close",
+		"skipOnboarding": "Skip onboarding"
+	},
+	"settings": {
+		"title": "Settings",
+		"enabledPanels": "Enabled Panels",
+		"enabledDesc": "Toggle panels on/off to customize your dashboard",
+		"dashboard": "Dashboard",
+		"reconfigure": "Reconfigure Dashboard",
+		"reconfigureHint": "Choose a preset profile for your panels",
+		"reset": "Reset All Settings",
+		"language": "Language",
+		"languageDesc": "Choose interface language",
+		"languageZh": "中文",
+		"languageEn": "English"
+	},
+	"onboarding": {
+		"title": "Welcome to Situation Monitor",
+		"subtitle": "Choose a dashboard configuration to get started",
+		"panelCount": "{count} panels",
+		"hint": "You can change this later in Settings"
+	},
+	"monitorForm": {
+		"titleEdit": "Edit Monitor",
+		"titleCreate": "Create Monitor",
+		"name": "Name",
+		"namePlaceholder": "e.g., Ukraine Crisis",
+		"keywords": "Keywords (comma separated)",
+		"keywordsPlaceholder": "e.g., ukraine, zelensky, kyiv",
+		"keywordsHint": "News matching any of these keywords will appear in your monitor",
+		"enabled": "Enabled",
+		"delete": "Delete",
+		"cancel": "Cancel",
+		"save": "Save Changes",
+		"create": "Create Monitor",
+		"errorNameRequired": "Name is required",
+		"errorKeywordRequired": "At least one keyword is required",
+		"errorMax": "Maximum number of monitors reached (20)"
+	},
+	"monitors": {
+		"title": "Custom Monitors",
+		"empty": "No monitors configured",
+		"create": "+ Create Monitor",
+		"activeCount": "{count} active",
+		"enable": "Enable",
+		"disable": "Disable",
+		"edit": "Edit",
+		"delete": "Delete"
+	},
+	"polymarket": {
+		"volume": "Vol"
+	},
+	"panel": {
+		"toggle": "Toggle panel",
+		"loading": "Loading..."
+	},
+	"error": {
+		"retry": "Retry"
+	},
+	"news": {
+		"alert": "ALERT"
+	},
+	"mainChar": {
+		"label": "Today's Main Character",
+		"mentions": "{count} mentions in headlines"
+	},
+	"correlation": {
+		"insufficient": "Insufficient data for analysis",
+		"emerging": "Emerging Patterns",
+		"momentum": "Momentum Signals",
+		"crossSource": "Cross-Source Links",
+		"predictive": "Predictive Signals",
+		"confidence": "Confidence: {percent}%",
+		"items": "{count} items",
+		"sources": "{count} sources"
+	},
+	"narrative": {
+		"insufficient": "Insufficient data for narrative analysis",
+		"emergingFringe": "Emerging Fringe",
+		"crossovers": "Fringe → Mainstream Crossovers",
+		"watch": "Narrative Watch",
+		"disinfo": "Disinfo Signals",
+		"mentions": "{count} mentions",
+		"fringeCount": "Fringe ({count})",
+		"mainstreamCount": "Mainstream ({count})",
+		"crossoverLevel": "Crossover level: {percent}%"
+	},
+	"leaders": {
+		"since": "Since {year}"
+	},
+	"layoffs": {
+		"jobs": " jobs"
+	},
+	"threat": {
+		"monitoring": "MONITORING",
+		"elevated": "ELEVATED",
+		"critical": "CRITICAL"
+	},
+	"empty": {
+		"news": "No news available",
+		"market": "No market data available",
+		"sector": "No sector data available",
+		"commodity": "No commodity data available",
+		"crypto": "No crypto data available",
+		"polymarket": "No predictions available",
+		"whales": "No whale transactions detected",
+		"contracts": "No contracts available",
+		"layoffs": "No recent layoffs data",
+		"intel": "No intel available",
+		"fed": "No Fed data available",
+		"fedNews": "No Fed news available",
+		"leaders": "No leaders data available",
+		"mainChar": "No data yet",
+		"situation": "No recent news",
+		"correlation": "No significant patterns detected",
+		"narrative": "No significant narratives detected"
+	},
+	"panels": {
+		"map": "Global Map",
+		"politics": "World / Geopolitical",
+		"tech": "Technology / AI",
+		"finance": "Financial",
+		"gov": "Government / Policy",
+		"heatmap": "Sector Heatmap",
+		"markets": "Markets",
+		"monitors": "My Monitors",
+		"commodities": "Commodities / VIX",
+		"crypto": "Crypto",
+		"polymarket": "Polymarket",
+		"whales": "Whale Watch",
+		"mainchar": "Main Character",
+		"printer": "Money Printer",
+		"contracts": "Gov Contracts",
+		"ai": "AI Arms Race",
+		"layoffs": "Layoffs Tracker",
+		"venezuela": "Venezuela Situation",
+		"greenland": "Greenland Situation",
+		"iran": "Iran Situation",
+		"leaders": "World Leaders",
+		"intel": "Intel Feed",
+		"correlation": "Correlation Engine",
+		"narrative": "Narrative Tracker",
+		"fed": "Federal Reserve"
+	},
+	"presets": {
+		"newsJunkie": {
+			"name": "News Junkie",
+			"description": "Stay on top of breaking news across politics, tech, and finance"
+		},
+		"trader": {
+			"name": "Trader",
+			"description": "Market-focused dashboard with stocks, crypto, and commodities"
+		},
+		"geopolitics": {
+			"name": "Geopolitics Watcher",
+			"description": "Global situation awareness and regional hotspots"
+		},
+		"intel": {
+			"name": "Intelligence Analyst",
+			"description": "Deep analysis, pattern detection, and narrative tracking"
+		},
+		"minimal": {
+			"name": "Minimal",
+			"description": "Just the essentials - map, news, and markets"
+		},
+		"everything": {
+			"name": "Everything",
+			"description": "Kitchen sink - all panels enabled"
+		}
+	},
+	"vix": {
+		"highFear": "HIGH FEAR",
+		"elevated": "ELEVATED",
+		"low": "LOW"
+	},
+	"printer": {
+		"on": "PRINTER ON",
+		"off": "PRINTER OFF",
+		"label": "Federal Reserve Balance Sheet",
+		"weekOverWeek": "WoW"
+	},
+	"fed": {
+		"title": "Federal Reserve",
+		"noApiKey": "Add VITE_FRED_API_KEY for economic indicators",
+		"speeches": "Speeches & Video",
+		"liveBroadcast": "Live Broadcast",
+		"powell": "POWELL",
+		"video": "VIDEO"
+	},
+	"situation": {
+		"venezuelaTitle": "Venezuela Watch",
+		"venezuelaSubtitle": "Humanitarian crisis monitoring",
+		"greenlandTitle": "Greenland Watch",
+		"greenlandSubtitle": "Arctic geopolitics monitoring",
+		"iranTitle": "Iran Crisis",
+		"iranSubtitle": "Revolution protests, regime instability & nuclear program"
+	}
+}

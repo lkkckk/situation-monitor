@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { NewsItem } from '$lib/types';
 	import { timeAgo } from '$lib/utils';
+	import { _ } from 'svelte-i18n';
 
 	interface Props {
 		item: NewsItem;
@@ -24,7 +25,7 @@
 		<div class="item-source">
 			{item.source}
 			{#if showAlert && item.isAlert}
-				<span class="alert-tag">ALERT</span>
+				<span class="alert-tag">{$_('news.alert')}</span>
 			{/if}
 		</div>
 	{/if}

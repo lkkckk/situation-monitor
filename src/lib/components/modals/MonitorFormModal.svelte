@@ -2,6 +2,7 @@
 	import Modal from './Modal.svelte';
 	import { monitors } from '$lib/stores';
 	import type { CustomMonitor } from '$lib/types';
+	import { _ } from 'svelte-i18n';
 
 	interface Props {
 		open: boolean;
@@ -42,12 +43,12 @@
 			.filter((k) => k.length > 0);
 
 		if (!trimmedName) {
-			error = 'Name is required';
+			error = $_('monitorForm.errorNameRequired');
 			return;
 		}
 
 		if (keywordList.length === 0) {
-			error = 'At least one keyword is required';
+			error = $_('monitorForm.errorKeywordRequired');
 			return;
 		}
 
@@ -67,7 +68,7 @@
 			});
 
 			if (!result) {
-				error = 'Maximum number of monitors reached (20)';
+				error = $_('monitorForm.errorMax');
 				return;
 			}
 		}
@@ -83,48 +84,56 @@
 	}
 </script>
 
-<Modal {open} title={editMonitor ? 'Edit Monitor' : 'Create Monitor'} {onClose}>
+<Modal
+	{open}
+	title={editMonitor ? $_('monitorForm.titleEdit') : $_('monitorForm.titleCreate')}
+	{onClose}
+>
 	<form class="monitor-form" onsubmit={handleSubmit}>
 		{#if error}
 			<div class="form-error">{error}</div>
 		{/if}
 
 		<div class="form-group">
-			<label for="monitor-name">Name</label>
+			<label for="monitor-name">{$_('monitorForm.name')}</label>
 			<input
 				id="monitor-name"
 				type="text"
 				bind:value={name}
-				placeholder="e.g., Ukraine Crisis"
+				placeholder={$_('monitorForm.namePlaceholder')}
 				maxlength="50"
 			/>
 		</div>
 
 		<div class="form-group">
-			<label for="monitor-keywords">Keywords (comma separated)</label>
+			<label for="monitor-keywords">{$_('monitorForm.keywords')}</label>
 			<input
 				id="monitor-keywords"
 				type="text"
 				bind:value={keywords}
-				placeholder="e.g., ukraine, zelensky, kyiv"
+				placeholder={$_('monitorForm.keywordsPlaceholder')}
 			/>
-			<p class="form-hint">News matching any of these keywords will appear in your monitor</p>
+			<p class="form-hint">{$_('monitorForm.keywordsHint')}</p>
 		</div>
 
 		<div class="form-group">
 			<label class="checkbox-label">
 				<input type="checkbox" bind:checked={enabled} />
-				<span>Enabled</span>
+				<span>{$_('monitorForm.enabled')}</span>
 			</label>
 		</div>
 
 		<div class="form-actions">
 			{#if editMonitor}
-				<button type="button" class="delete-btn" onclick={handleDelete}> Delete </button>
+				<button type="button" class="delete-btn" onclick={handleDelete}>
+					{$_('monitorForm.delete')}
+				</button>
 			{/if}
-			<button type="button" class="cancel-btn" onclick={onClose}> Cancel </button>
+			<button type="button" class="cancel-btn" onclick={onClose}>
+				{$_('monitorForm.cancel')}
+			</button>
 			<button type="submit" class="submit-btn">
-				{editMonitor ? 'Save Changes' : 'Create Monitor'}
+				{editMonitor ? $_('monitorForm.save') : $_('monitorForm.create')}
 			</button>
 		</div>
 	</form>

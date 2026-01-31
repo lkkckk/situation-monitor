@@ -3,7 +3,7 @@
  */
 
 export interface PanelConfig {
-	name: string;
+	nameKey: string;
 	priority: 1 | 2 | 3;
 }
 
@@ -35,31 +35,31 @@ export type PanelId =
 	| 'fed';
 
 export const PANELS: Record<PanelId, PanelConfig> = {
-	map: { name: 'Global Map', priority: 1 },
-	politics: { name: 'World / Geopolitical', priority: 1 },
-	tech: { name: 'Technology / AI', priority: 1 },
-	finance: { name: 'Financial', priority: 1 },
-	gov: { name: 'Government / Policy', priority: 2 },
-	heatmap: { name: 'Sector Heatmap', priority: 1 },
-	markets: { name: 'Markets', priority: 1 },
-	monitors: { name: 'My Monitors', priority: 1 },
-	commodities: { name: 'Commodities / VIX', priority: 2 },
-	crypto: { name: 'Crypto', priority: 2 },
-	polymarket: { name: 'Polymarket', priority: 2 },
-	whales: { name: 'Whale Watch', priority: 3 },
-	mainchar: { name: 'Main Character', priority: 2 },
-	printer: { name: 'Money Printer', priority: 2 },
-	contracts: { name: 'Gov Contracts', priority: 3 },
-	ai: { name: 'AI Arms Race', priority: 3 },
-	layoffs: { name: 'Layoffs Tracker', priority: 3 },
-	venezuela: { name: 'Venezuela Situation', priority: 2 },
-	greenland: { name: 'Greenland Situation', priority: 2 },
-	iran: { name: 'Iran Situation', priority: 2 },
-	leaders: { name: 'World Leaders', priority: 1 },
-	intel: { name: 'Intel Feed', priority: 2 },
-	correlation: { name: 'Correlation Engine', priority: 1 },
-	narrative: { name: 'Narrative Tracker', priority: 1 },
-	fed: { name: 'Federal Reserve', priority: 1 }
+	map: { nameKey: 'panels.map', priority: 1 },
+	politics: { nameKey: 'panels.politics', priority: 1 },
+	tech: { nameKey: 'panels.tech', priority: 1 },
+	finance: { nameKey: 'panels.finance', priority: 1 },
+	gov: { nameKey: 'panels.gov', priority: 2 },
+	heatmap: { nameKey: 'panels.heatmap', priority: 1 },
+	markets: { nameKey: 'panels.markets', priority: 1 },
+	monitors: { nameKey: 'panels.monitors', priority: 1 },
+	commodities: { nameKey: 'panels.commodities', priority: 2 },
+	crypto: { nameKey: 'panels.crypto', priority: 2 },
+	polymarket: { nameKey: 'panels.polymarket', priority: 2 },
+	whales: { nameKey: 'panels.whales', priority: 3 },
+	mainchar: { nameKey: 'panels.mainchar', priority: 2 },
+	printer: { nameKey: 'panels.printer', priority: 2 },
+	contracts: { nameKey: 'panels.contracts', priority: 3 },
+	ai: { nameKey: 'panels.ai', priority: 3 },
+	layoffs: { nameKey: 'panels.layoffs', priority: 3 },
+	venezuela: { nameKey: 'panels.venezuela', priority: 2 },
+	greenland: { nameKey: 'panels.greenland', priority: 2 },
+	iran: { nameKey: 'panels.iran', priority: 2 },
+	leaders: { nameKey: 'panels.leaders', priority: 1 },
+	intel: { nameKey: 'panels.intel', priority: 2 },
+	correlation: { nameKey: 'panels.correlation', priority: 1 },
+	narrative: { nameKey: 'panels.narrative', priority: 1 },
+	fed: { nameKey: 'panels.fed', priority: 1 }
 };
 
 export const NON_DRAGGABLE_PANELS: PanelId[] = ['map'];

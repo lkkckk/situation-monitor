@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Panel } from '$lib/components/common';
 	import { timeAgo } from '$lib/utils';
+	import { _ } from 'svelte-i18n';
 
 	interface Layoff {
 		company: string;
@@ -20,9 +21,9 @@
 	const count = $derived(layoffs.length);
 </script>
 
-<Panel id="layoffs" title="Layoffs Tracker" {count} {loading} {error}>
+<Panel id="layoffs" title={$_('panels.layoffs')} {count} {loading} {error}>
 	{#if layoffs.length === 0 && !loading && !error}
-		<div class="empty-state">No recent layoffs data</div>
+		<div class="empty-state">{$_('empty.layoffs')}</div>
 	{:else}
 		<div class="layoffs-list">
 			{#each layoffs as layoff, i (layoff.company + i)}
@@ -32,7 +33,8 @@
 						<div class="layoff-count">
 							{typeof layoff.count === 'string'
 								? parseInt(layoff.count).toLocaleString()
-								: layoff.count.toLocaleString()} jobs
+								: layoff.count.toLocaleString()}
+							{$_('layoffs.jobs')}
 						</div>
 					{/if}
 					<div class="layoff-meta">

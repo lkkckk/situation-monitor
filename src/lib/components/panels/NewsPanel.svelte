@@ -3,6 +3,7 @@
 	import type { NewsCategory } from '$lib/types';
 	import type { PanelId } from '$lib/config';
 	import { politicsNews, techNews, financeNews, govNews, aiNews, intelNews } from '$lib/stores';
+	import { _ } from 'svelte-i18n';
 
 	interface Props {
 		category: NewsCategory;
@@ -31,7 +32,7 @@
 
 <Panel id={panelId} {title} {count} {loading} {error}>
 	{#if items.length === 0 && !loading && !error}
-		<div class="empty-state">No news available</div>
+		<div class="empty-state">{$_('empty.news')}</div>
 	{:else}
 		<div class="news-list">
 			{#each items.slice(0, 15) as item (item.id)}
